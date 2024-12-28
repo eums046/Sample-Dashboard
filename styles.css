@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #1992d4;
+    --primary-dark: #1577ac;
+    --bg-gray: #e2e8f0;
+    --accent-yellow: #f0b429;
+    --text-gray: #636363;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 24px;
+    grid-row: 1 / -1;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+.logo .mdi {
+    font-size: 32px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.nav-main, .nav-secondary {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nav-main li, .nav-secondary li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nav-main li:hover, .nav-secondary li:hover {
+    background-color: var(--primary-dark);
+}
+
+.nav-main .mdi, .nav-secondary .mdi {
+    font-size: 24px;
+}
+
+/* Main Content */
+.main {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+/* Header */
+.header {
+    background-color: white;
+    padding: 24px 48px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search .mdi {
+    font-size: 24px;
+    color: var(--text-gray);
+}
+
+.search input {
+    width: 100%;
+    background-color: var(--bg-gray);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 16px;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.search input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-blue);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.user-info .mdi {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-yellow);
+    cursor: pointer;
+}
+
+.avatar.large {
+    width: 70px;
+    height: 70px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.header-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.greeting {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.greeting-text p {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.greeting-text h2 {
+    font-size: 24px;
+}
+
+.buttons {
+    display: flex;
+    gap: 24px;
+}
+
+.buttons button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.buttons button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* Content */
+.content {
+    background-color: var(--bg-gray);
+    padding: 32px 24px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 24px;
+    overflow-y: auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 32px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.projects-grid .card {
+    border-left: 8px solid var(--accent-yellow);
+}
+
+.card h4 {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.card p {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.card-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.card-icons .mdi {
+    font-size: 22px;
+    color: var(--text-gray);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.card-icons .mdi:hover {
+    color: var(--primary-blue);
+    transform: scale(1.1);
+}
+
+/* Side Content */
+.side-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.announcement {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--bg-gray);
+}
+
+.announcement:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.announcement:first-child {
+    padding-top: 0;
+}
+
+.announcement h5 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.announcement p {
+    font-size: 12px;
+    color: var(--text-gray);
+    line-height: 1.4;
+}
+
+.trend {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+}
+
+.trend:first-child {
+    padding-top: 0;
+}
+
+.trend:last-child {
+    padding-bottom: 0;
+}
+
+.trend-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-yellow);
+}
+
+.trend-info .username {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.trend-info .project {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 250px 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+    
+    .content {
+        grid-template-columns: 1fr;
+    }
+    
+    .header {
+        padding: 16px 24px;
+    }
+    
+    .greeting-text h2 {
+        font-size: 20px;
+    }
+    
+    .buttons button {
+        padding: 8px 16px;
+    }
+}
